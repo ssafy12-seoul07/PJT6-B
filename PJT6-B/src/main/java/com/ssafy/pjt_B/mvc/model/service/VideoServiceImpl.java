@@ -2,14 +2,19 @@ package com.ssafy.pjt_B.mvc.model.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.ssafy.pjt_B.mvc.model.dao.VideoDao;
 import com.ssafy.pjt_B.mvc.model.dto.Video;
 
+@Service
 public class VideoServiceImpl implements VideoService {
-    private VideoDao videoDao;
 
+    private final VideoDao videoDao;
+
+    @Autowired
     public VideoServiceImpl(VideoDao videoDao) {
-        // VideoRepositoryImpl 인스턴스 생성
         this.videoDao = videoDao;
     }
 

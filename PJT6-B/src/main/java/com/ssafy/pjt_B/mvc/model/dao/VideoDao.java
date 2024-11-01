@@ -2,15 +2,19 @@ package com.ssafy.pjt_B.mvc.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 import com.ssafy.pjt_B.mvc.model.dto.Video;
 
+@Mapper  // Tells MyBatis to create an implementation at runtime
 public interface VideoDao {
-    // 조회수 기준으로 상위 영상을 가져오는 메서드
+    // Retrieve top videos by views
     List<Video> findTopVideos();
 
-    // 특정 운동 부위에 해당하는 영상을 가져오는 메서드
-    List<Video> findVideosByBodyPart(String bodyPart);
+    // Retrieve videos by body part
+    List<Video> findVideosByBodyPart(@Param("bodyPart") String bodyPart);
     
-    // 모든 영상을 가져오는 메서드
+    // Retrieve all videos
     List<Video> findAll();
 }

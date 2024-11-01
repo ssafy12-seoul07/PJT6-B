@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.pjt_B.mvc.model.dao.VideoDao">
 
     <!-- SQL to retrieve top videos by views -->
     <select id="findTopVideos" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
-        SELECT id, title, description, body_part AS bodyPart, views
-        FROM videos
-        ORDER BY views DESC
-        LIMIT 10
+        SELECT * FROM videos ORDER BY views DESC LIMIT 10
     </select>
 
     <!-- SQL to retrieve videos by body part -->
     <select id="findVideosByBodyPart" parameterType="string" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
-        SELECT id, title, description, body_part AS bodyPart, views
-        FROM videos
-        WHERE body_part = #{bodyPart}
+        SELECT * FROM videos WHERE body_part = #{bodyPart}
     </select>
-
+    
     <!-- SQL to retrieve all videos -->
     <select id="findAll" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
-        SELECT id, title, description, body_part AS bodyPart, views
-        FROM videos
+        SELECT * FROM videos
     </select>
 
 </mapper>
