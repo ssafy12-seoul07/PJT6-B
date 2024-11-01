@@ -2,9 +2,11 @@ package com.ssafy.pjt_B.mvc.model.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.ssafy.pjt_B.mvc.model.dao.ReviewDao;
 import com.ssafy.pjt_B.mvc.model.dto.Review;
-
+@Service
 public class ReviewServiceImpl implements ReviewService{
 	private final ReviewDao reviewDao;
 	
