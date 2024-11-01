@@ -4,7 +4,8 @@ use ssafy_PJT6;
 
 -- 1. 회원 테이블 생성
 CREATE TABLE User (
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_seq INT PRIMARY KEY AUTO_INCREMENT,
+    user_id VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
     user_name VARCHAR(50) NOT NULL UNIQUE,
     nick_name VARCHAR(50) NOT NULL UNIQUE
@@ -34,44 +35,13 @@ CREATE TABLE Review (
     regDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- 데이터베이스 초기화
-DROP DATABASE IF EXISTS ssafy_PJT6;
-CREATE DATABASE ssafy_PJT6;
-USE ssafy_PJT6;
-
--- 1. 회원 테이블 생성
-CREATE TABLE User (
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
-    password VARCHAR(100) NOT NULL,
-    user_name VARCHAR(50) NOT NULL UNIQUE,
-    nick_name VARCHAR(50) NOT NULL UNIQUE
-);
-
--- 3. 운동 영상 테이블 생성
-CREATE TABLE Video (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100) NOT NULL,
-    discription TEXT NOT NULL,
-    body_part VARCHAR(50),
-    views INT DEFAULT 0
-);
-
--- 4. 리뷰 테이블 생성
-CREATE TABLE Review (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100) NOT NULL,
-    writer VARCHAR(50) NOT NULL,
-    content TEXT,
-    regDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
--- 회원(User) 더미 데이터 삽입
-INSERT INTO User (password, user_name, nick_name) VALUES
-('password123', 'user1', '닉네임1'),
-('password456', 'user2', '닉네임2'),
-('password789', 'user3', '닉네임3'),
-('password101', 'user4', '닉네임4'),
-('password202', 'user5', '닉네임5');
+-- 회원(User) 더미 데이터 삽입Ni
+INSERT INTO User (user_id, password, user_name, nick_name) VALUES
+('user1', 'password123', 'user1', '닉네임1'),
+('user2', 'password456', 'user2', '닉네임2'),
+('user3', 'password789', 'user3', '닉네임3'),
+('user4', 'password101', 'user4', '닉네임4'),
+('user5', 'password202', 'user5', '닉네임5');
 
 -- 운동 영상(Video) 더미 데이터 삽입
 INSERT INTO Video (title, discription, body_part, views) VALUES
