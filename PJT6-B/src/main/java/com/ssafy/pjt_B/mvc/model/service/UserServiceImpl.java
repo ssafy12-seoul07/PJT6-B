@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     public User login(String userid, String password) {
     	Map<String, String> info = new HashMap<>();
 		
-		info.put("id", userid);
+		info.put("userId", userid);
 		info.put("password", password);
 		
 		User tmp = userDao.selectOne(info);
