@@ -31,15 +31,20 @@ public class ReviewController {
 
 	//리뷰를 등록하는 메서드(Create)
 	@PostMapping("/review")
-	private ResponseEntity<Review> writeReview(@ModelAttribute Review review) {
-		reviewService.writeReview(review);
-		return new ResponseEntity<Review>(review, HttpStatus.CREATED);
+	private ResponseEntity<String> write(@ModelAttribute Review review) {
+		int result = reviewService.writeReview(review);
+		if(result > 0) 
+			return ResponseEntity.status(HttpStatus.CREATED).body("review created");
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("writeReview failed");
 	}
 	
 	//리뷰 목록을 보여주는 메서드(Read)
 	@GetMapping("/review")
 	private ResponseEntity<List<Review>> list() {
-		return new ResponseEntity<>(reviewService.getList(), HttpStatus.OK);
+		List<Review> list = reviewService.getList();
+		if(list.size() != 0)
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	
@@ -47,25 +52,27 @@ public class ReviewController {
 	@GetMapping("/review/{id}")
 	private ResponseEntity<Review> selectOne(@PathVariable("id") int id) {
 		Review review = reviewService.getReview(id);
-		return new ResponseEntity<>(review, HttpStatus.OK);
+		if(review != null)
+			return new ResponseEntity<>(review, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	//리뷰를 수정하는 메서드(Update)
 	@PutMapping("/review/{id}")
-	private ResponseEntity<Void> doUpdateForm(@PathVariable("id") int id, @RequestBody Review review) {
+	private ResponseEntity<String> update(@PathVariable("id") int id, @ModelAttribute Review review) {
 		review.setId(id);
-		reviewService.modifyReview(review);
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		int result = reviewService.modifyReview(review);
+		if(result > 0) return ResponseEntity.status(HttpStatus.OK).body("review updated");
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("update failed");
 	}
 
 	//리뷰를 삭제하는 메서드(Delete)
 	@DeleteMapping("/review/{id}")
-	private ResponseEntity<String> removeReview(@PathVariable("id") int id) {
-		boolean isDeleted = reviewService.removeReview(id);
-		if(isDeleted) 
-			return ResponseEntity.status(HttpStatus.OK).body("Board deleted");
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed");
-
+	private ResponseEntity<String> remove(@PathVariable("id") int id) {
+		int result = reviewService.removeReview(id);
+		if(result>0) 
+			return ResponseEntity.status(HttpStatus.OK).body("review deleted");
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("delete failed");
 	}
 
 

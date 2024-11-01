@@ -13,11 +13,11 @@ public interface ReviewService {
 		public abstract Review getReview(int id);
 
 		// 게시글 작성
-		public abstract void writeReview(Review review);
+		public abstract int writeReview(Review review);
 
 		// 게시글 수정
-		public abstract void modifyReview(Review review);
+		public abstract int modifyReview(Review review);
 
 		// 게시글 삭제
-		public abstract boolean removeReview(int id);
+		public abstract int removeReview(int id);
 }

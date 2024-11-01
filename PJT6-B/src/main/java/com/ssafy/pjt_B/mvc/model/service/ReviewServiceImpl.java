@@ -25,19 +25,21 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	@Override
-	public void writeReview(Review review) {
-		reviewDao.insertReview(review);
+	public int writeReview(Review review) {
+		int result = reviewDao.insertReview(review);
+		return result;
 	}
 	
 	@Override
-	public void modifyReview(Review review) {
-		reviewDao.updateReview(review);
+	public int modifyReview(Review review) {
+		int result = reviewDao.updateReview(review);
+		return result;
 	}
 	
 	@Override
-	public boolean removeReview(int id) {
-		reviewDao.deleteReview(id);
-		return true;
+	public int removeReview(int id) {
+		int result = reviewDao.deleteReview(id);
+		return result;
 	}
 	
 	

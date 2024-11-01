@@ -11,13 +11,7 @@ CREATE TABLE User (
     nick_name VARCHAR(50) NOT NULL UNIQUE
 );
 
--- 2. 운동 부위 테이블 생성
--- CREATE TABLE Category (
---     id INT PRIMARY KEY AUTO_INCREMENT,
---     name VARCHAR(50) NOT NULL UNIQUE
--- );
-
--- 3. 운동 영상 테이블 생성
+-- 2. 운동 영상 테이블 생성
 CREATE TABLE Video (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
@@ -26,7 +20,7 @@ CREATE TABLE Video (
     views INT DEFAULT 0
 );
 
--- 4. 리뷰 테이블 생성
+-- 3. 리뷰 테이블 생성
 CREATE TABLE Review (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title varchar(100) not null,
@@ -58,5 +52,3 @@ INSERT INTO Review (title, writer, content) VALUES
 ('Leg Workout', 'user3', 'Good exercises to tone and strengthen legs.'),
 ('Upper Body Strength', 'user4', 'Great for building upper body strength!'),
 ('Cardio Session', 'user5', 'This cardio routine makes me sweat every time!');
-
--- select * from Review;

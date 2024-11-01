@@ -14,11 +14,11 @@ public interface ReviewDao {
 		public abstract Review selectOne(int id);
 
 		//게시글 등록하기
-		public abstract void insertReview(Review review);
+		public abstract int insertReview(Review review);
 
 		//게시글 수정하기
-		public abstract void updateReview(Review review);
+		public abstract int updateReview(Review review);
 
 		//게시글 삭제하기
-		public abstract void deleteReview(int id);
+		public abstract int deleteReview(int id);
 }
