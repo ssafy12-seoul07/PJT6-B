@@ -2,19 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.pjt_B.mvc.model.dao.VideoDao">
 
-    <!-- SQL to retrieve top videos by views -->
-    <select id="findTopVideos" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
-        SELECT * FROM videos ORDER BY views DESC LIMIT 10
-    </select>
+	<!-- SQL to retrieve top videos by views -->
+	<select id="findTopVideos" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
+	    SELECT * FROM Video ORDER BY views DESC LIMIT 10
+	</select>
+	
+	<!-- SQL to retrieve videos by body part -->
+	<select id="findVideosByBodyPart" parameterType="string" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
+	    SELECT * FROM Video WHERE body_part = #{bodyPart}
+	</select>
+	
+	<!-- SQL to retrieve all videos -->
+	<select id="findAll" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
+	    SELECT * FROM Video
+	</select>
 
-    <!-- SQL to retrieve videos by body part -->
-    <select id="findVideosByBodyPart" parameterType="string" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
-        SELECT * FROM videos WHERE body_part = #{bodyPart}
-    </select>
-    
-    <!-- SQL to retrieve all videos -->
-    <select id="findAll" resultType="com.ssafy.pjt_B.mvc.model.dto.Video">
-        SELECT * FROM videos
-    </select>
 
 </mapper>
