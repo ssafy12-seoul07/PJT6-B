@@ -1,18 +1,41 @@
 package com.ssafy.pjt_B.mvc.model.dto;
 
-public class User {
-	private String id;
-	private String password;
-	private String name;
-	private int curriculumCode;
-	private String curriculumName;
+import java.io.Serializable;
 
-	public String getId() {
-		return id;
+public class User implements Serializable{
+	
+	private static final long serialVersionUID = 10002L;
+	private static int no = 1;
+	int userSeq;
+	String userId;
+	String password;
+	String userName;
+	String nickName;
+	
+	public User() {}
+	
+	public User(String userId, String password, String userName, String nickName) {
+		this.userSeq = no++;
+		this.userId = userId;
+		this.password = password;
+		this.userName = userName;
+		this.nickName = nickName;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public int getUserSeq() {
+		return userSeq;
+	}
+
+	public void setUserSeq(int userSeq) {
+		this.userSeq = userSeq;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPassword() {
@@ -23,28 +46,26 @@ public class User {
 		this.password = password;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public int getCurriculumCode() {
-		return curriculumCode;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setCurriculumCode(int curriculumCode) {
-		this.curriculumCode = curriculumCode;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
-	public String getCurriculumName() {
-		return curriculumName;
-	}
-
-	public void setCurriculumName(String curriculumName) {
-		this.curriculumName = curriculumName;
+	@Override
+	public String toString() {
+		return "User [userSeq=" + userSeq + ", userId=" + userId + ", password=" + password + ", userName=" + userName
+				+ ", nickName=" + nickName + "]";
 	}
 
 }

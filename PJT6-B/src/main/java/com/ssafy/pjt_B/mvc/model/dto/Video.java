@@ -1,4 +1,4 @@
-package com.ssafy.ssafit.model.dto;
+package com.ssafy.pjt_B.mvc.model.dto;
 
 public class Video {
     private String id;

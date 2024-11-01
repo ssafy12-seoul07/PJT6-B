@@ -1,8 +1,8 @@
-package com.ssafy.ssafit.model.service;
+package com.ssafy.pjt_B.mvc.model.service;
 
 import java.util.List;
 
-import com.ssafy.ssafit.model.dto.Review;
+import com.ssafy.pjt_B.mvc.model.dto.Review;
 
 public interface ReviewService {
 	

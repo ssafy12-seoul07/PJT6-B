@@ -1,14 +1,11 @@
 package com.ssafy.pjt_B.mvc.model.dao;
 
-import java.util.List;
-import java.util.Map;
-
-import com.ssafy.mvc.model.dto.User;
+import com.ssafy.pjt_B.mvc.model.dto.User;
 
 public interface UserDao {
-	public List<User> selectAll();
-
-	public void insertUser(User user);
-
-	public User selectOne(Map<String, String> info);
+	// 이름으로 유저 정보 찾기
+	public abstract User findByUserId(String userId);
+	
+	// 회원가입
+	public abstract void saveUser(User user);
 }

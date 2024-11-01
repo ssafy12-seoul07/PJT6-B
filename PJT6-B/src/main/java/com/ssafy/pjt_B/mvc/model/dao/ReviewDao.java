@@ -1,10 +1,10 @@
-package com.ssafy.ssafit.model.repository;
+package com.ssafy.pjt_B.mvc.model.dao;
 
 import java.util.List;
 
-import com.ssafy.ssafit.model.dto.Review;
+import com.ssafy.pjt_B.mvc.model.dto.Review;
 
-public interface ReviewRepository {
+public interface ReviewDao {
 	
 	
 	//전체 게시글 가져오기

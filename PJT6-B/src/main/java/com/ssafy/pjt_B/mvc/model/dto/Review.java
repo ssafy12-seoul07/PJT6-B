@@ -1,9 +1,9 @@
-package com.ssafy.ssafit.model.dto;
+package com.ssafy.pjt_B.mvc.model.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class Review implements Serializable{
+public class Review implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private static int no = 1; //클래스변수

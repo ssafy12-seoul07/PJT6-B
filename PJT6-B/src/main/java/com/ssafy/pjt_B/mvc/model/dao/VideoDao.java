@@ -1,9 +1,10 @@
-package com.ssafy.ssafit.model.repository;
+package com.ssafy.pjt_B.mvc.model.dao;
 
-import com.ssafy.ssafit.model.dto.Video;
 import java.util.List;
 
-public interface VideoRepository {
+import com.ssafy.pjt_B.mvc.model.dto.Video;
+
+public interface VideoDao {
     // 조회수 기준으로 상위 영상을 가져오는 메서드
     List<Video> findTopVideos();
 
