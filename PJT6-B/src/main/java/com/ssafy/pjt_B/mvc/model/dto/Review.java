@@ -12,7 +12,6 @@ public class Review implements Serializable {
 	private String writer;
 	private String content;
 	private String regDate;
-	private int viewCnt; //조회수
 	
 	//기본 생성자
 	public Review() {}
@@ -73,22 +72,12 @@ public class Review implements Serializable {
 		this.regDate = regDate;
 	}
 
-	public int getViewCnt() {
-		return viewCnt;
-	}
 
-	public void setViewCnt(int viewCnt) {
-		this.viewCnt = viewCnt;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	@Override
 	public String toString() {
 		return "Review [id=" + id + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
-				+ regDate + ", viewCnt=" + viewCnt + "]";
+				+ regDate + ", viewCnt=" + "]";
 	}
 	
 	

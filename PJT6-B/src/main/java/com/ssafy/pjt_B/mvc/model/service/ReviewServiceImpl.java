@@ -19,7 +19,6 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	@Override
 	public Review getReview(int id) {
-		reviewDao.updateViewCnt(id);
 		return reviewDao.selectOne(id);
 	}
 	
@@ -34,8 +33,9 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	@Override
-	public void removeReview(int id) {
+	public boolean removeReview(int id) {
 		reviewDao.deleteReview(id);
+		return true;
 	}
 	
 	

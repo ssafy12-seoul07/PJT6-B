@@ -21,7 +21,4 @@ public interface ReviewDao {
 
 		//게시글 삭제하기
 		public abstract void deleteReview(int id);
-
-		//게시글 조회수 증가
-		public abstract void updateViewCnt(int id);
 }

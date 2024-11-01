@@ -19,5 +19,5 @@ public interface ReviewService {
 		public abstract void modifyReview(Review review);
 
 		// 게시글 삭제
-		public abstract void removeReview(int id);
+		public abstract boolean removeReview(int id);
 }
